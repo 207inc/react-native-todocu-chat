@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import Modal from "react-native-modal";
-import { CustomChat } from './index'
+import { CustomChat } from './customChat'
 import MyInputToolbar from './MyInputToolbar'
 import "moment";
 import "moment/locale/ja";
