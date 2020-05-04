@@ -1,2 +1,1 @@
-export * from './Chat';
-//# sourceMappingURL=index.js.map
+export { Chat } from './Chat';

@@ -22,7 +22,7 @@ const instructions = Platform.select({
 
 const {height, width} = Dimensions.get('window');
 
-export default class Chat extends Component {
+export class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
