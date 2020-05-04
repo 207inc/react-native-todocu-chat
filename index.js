@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import Modal from "react-native-modal";
-import { CustomChat } from './customChat'
+import { GiftedChat } from 'react-native-gifted-chat'
 import MyInputToolbar from './MyInputToolbar'
 import "moment";
 import "moment/locale/ja";
@@ -338,7 +338,7 @@ export default class Chat extends Component {
             </TouchableOpacity>
 
             <View style={{flex:1, marginTop: 50, backgroundColor: '#fff', ...ifIphoneX({paddingBottom: getBottomSpace()})}}>
-              <CustomChat
+              <GiftedChat
                 typingDisabled={this.props.typingDisabled}
                 textInputProps={{autoFocus: true}}
                 locale={'ja'}
