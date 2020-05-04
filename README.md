@@ -1,3 +1,8 @@
+# Installation
+```
+yarn add react-native-todocu-chat react-native-linear-gradient
+```
+
 # Example
 ```jsx
 <Chat 
