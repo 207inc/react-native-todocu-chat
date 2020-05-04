@@ -43,40 +43,6 @@ export class Chat extends Component {
   componentDidMount() {
   }
 
-  getRequestForPresignedUrl() {
-    return global.apiReqest('GET', '/api/v1/users/my/products/request_for_presigned_url').then((responseJson) => {
-      console.error(responseJson);
-    }).catch((error) => {
-      console.error(error);
-    });
-  }
-
-  async sendPackagePhoto() {
-    this.getRequestForPresignedUrl().then((data) => {
-      const { url, url_fields } = data;
-      const uri = '';
-      const type = '';
-      const name = `${new Date().getTime()}.${fileType}`;
-      const file = {uri, name, type};
-
-      const formData = new FormData();
-      formData.append('key', url_fields['key']);
-      formData.append('policy', url_fields['policy']);
-      formData.append('success_action_status', url_fields['success_action_status']);
-      formData.append('x-amz-algorithm', url_fields['x-amz-algorithm']);
-      formData.append('x-amz-credential', url_fields['x-amz-credential']);
-      formData.append('x-amz-date', url_fields['x-amz-date']);
-      formData.append('x-amz-signature', url_fields['x-amz-signature']);
-      formData.append('file', file);
-
-      return global.apiReqest('POST', url, {'Content-Type': 'multipart/form-data'}, formData).then((responseJson) => {
-        console.error(responseJson);
-      }).catch((error) => {
-        console.error(error);
-      });
-    })
-  }
-
   onFocusInput() {
     this.openChatModal();
   }
@@ -86,8 +52,7 @@ export class Chat extends Component {
   }
 
   openChatModal() {
-    // this.props.onModalOpen();
-    this.initializeChat();
+    this.props.onModalOpen();
 
     setTimeout(() => {
       this.setState({messageModalVisible: true});
@@ -256,34 +221,7 @@ export class Chat extends Component {
   }
 
   onSend(messages = []) {
-    let data = {
-      message: {
-        text: messages[0].text
-      }
-    }
-    global.apiReqest('POST', '/api/v1/my/products/' + this.props.productId + '/messages', null, JSON.stringify(data)).then((responseJson) => {
-      // console.error(responseJson);
-    }).catch((error) => {
-      // console.error(error);
-    });
-  }
-
-  uploadImage() {
-    let data = {
-      message: {
-        text: 'ファイルをアップロードしました。',
-        message_attachment_attributes: {
-          thumbnail: 'https://pbs.twimg.com/profile_images/977229272589877248/tvazqbxS_400x400.jpg',
-          file_type: 'png',
-          src: 'https://pbs.twimg.com/profile_images/977229272589877248/tvazqbxS_400x400.jpg'
-        }
-      }
-    }
-    global.apiReqest('POST', '/api/v1/my/products/' + this.props.productId + '/messages', null, JSON.stringify(data)).then((responseJson) => {
-      // console.error(responseJson);
-    }).catch((error) => {
-      // console.error(error);
-    });
+    this.props.onSend(messages)
   }
 
   handleMessage(new_message) {
@@ -297,10 +235,7 @@ export class Chat extends Component {
   }
 
   _onAttachmentIconPress() {
-    // this.getPermissionAsync().then(() => {
-    //   this._pickImage();
-    // })
-    this.uploadImage();
+    this.props.onAttachmentIconPress()
   }
 
   async getPermissionAsync() {
@@ -323,46 +258,6 @@ export class Chat extends Component {
       this.setState({ image: result.uri });
     }
   };
-
-  // API Reqs
-  async checkMessageMember() {
-    return global.apiReqest('POST', '/api/v1/my/products/' + this.props.productId + '/chat_members').then((responseJson) => {
-      // {"product_id":19532,"member_id":9566,"member_name":"","member_type":"User","member_avatar":"","last_read_at":null,"unread_count":0}
-      if (responseJson.errors[0].status == 422 || responseJson.product_id) {
-        return this.props.productId;
-      } else {
-        throw new Error(JSON.stringify(responseJson));
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
-  }
-
-  initializeChat() {
-    this.checkMessageMember().then(() => {
-      this.getMessages();
-      this.setState({placeholderVisible: false});
-    }).catch((e) => {
-      setTimeout(() => {
-        Alert.alert('エラー', 'チャットの初期化中にエラーが発生しました')
-      }, 500);
-      console.error(e);
-    });
-  }
-
-  getMessages() {
-    this.setState({messages: []});
-    let messages_request_per = 20;
-    let messages_request_page = 1;
-
-    this.setState({});
-
-    global.apiReqest('GET', '/api/v1/my/products/' + this.props.productId + '/messages').then((responseJson) => {
-      this.parseApiResponseMessages(responseJson.messages);
-    }).catch((error) => {
-      console.error(error);
-    });
-  }
 
   parseApiResponseMessages(messages) {
     let new_messages = [];
