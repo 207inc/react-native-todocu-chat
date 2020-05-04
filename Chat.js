@@ -14,7 +14,6 @@ import Video from 'react-native-video'
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder'
 import LottieView from "lottie-react-native";
 import { ifIphoneX, isIphoneX, getStatusBarHeight, getBottomSpace } from 'react-native-iphone-x-helper'
-var RCTLog = require('RCTLog');
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
