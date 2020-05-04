@@ -217,7 +217,7 @@ export class Chat extends Component {
                   backgroundColor: 'transparent',
                 }}
                 autoPlay
-                source={require('../assets/animations/typing1.json')}
+                source={require('./assets/animations/typing1.json')}
               />
             </View>
           </View>
