@@ -36,12 +36,20 @@ export default class Chat extends Component {
       placeholderOpacity: new Animated.Value(1),
       messageModalVisible: false,
       placeholderVisible: true,
-      messages: this.props.messages
+      messages: []
     };
   }
 
-  componentDidUpdate() {
-    console.warn('Chat updated' + JSON.stringify(this.props.messages))
+  UNSAFE_componentWillUpdate(nextProps) {  
+    this.setState({
+      messages: nextProps.messages
+    })
+  }
+
+  componentDidMount() {
+    this.setState({
+      messages: this.props.messages
+    })
   }
   
   onFocusInput() {
@@ -344,7 +352,7 @@ export default class Chat extends Component {
                 renderMessageVideo={this.renderMessageVideo.bind(this)}
                 renderInputToolbar={this.renderInputToolbar.bind(this)}
                 placeholder={'メッセージを入力'}
-                messages={this.props.messages}
+                messages={this.state.messages}
                 renderFooter={this.renderFooter.bind(this)}
                 onSend={messages => this.onSend(messages)}
                 user={{
