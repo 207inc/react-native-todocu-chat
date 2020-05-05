@@ -43,14 +43,6 @@ export default class Chat extends Component {
   componentDidMount() {
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.messages != nextProps.messages) {
-      return true
-    } else {
-      return false
-    }
-  }
-
   onFocusInput() {
     this.openChatModal();
   }
