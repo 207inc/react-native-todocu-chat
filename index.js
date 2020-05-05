@@ -327,7 +327,7 @@ export default class Chat extends Component {
 
             <TouchableOpacity style={{position: 'absolute', top: 0, left:16, width: 120, height: 50, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Image style={{width: 34, height: 34, borderRadius: 17, marginLeft: 16}} source={{uri: icon}} />
-              <View style={{borderColor: 'white', borderWidth: 1, width: 10, height: 10, borderRadius: 5, backgroundColor: '#00BB34', position: 'absolute', top: 11, left: 60}} />
+              <View style={{borderColor: 'white', borderWidth: 1, width: 10, height: 10, borderRadius: 5, backgroundColor: '#00BB34', position: 'absolute', top: 11, left: 30}} />
               <View style={{width: 100, marginLeft: 12}}>
                 <Text style={{fontSize: 15, fontWeight: 'bold', color: '#FFF'}}>{name}</Text>
                 <Text style={{fontSize: 11, color: '#ddd', marginTop: 3}}>{description}</Text>
