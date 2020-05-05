@@ -284,7 +284,7 @@ export default class Chat extends Component {
   }
 
   render() {
-    let {icon, name, desc} = this.props.room;
+    let {icon, name, description} = this.props.room;
     var color = this.state.headerColor.interpolate({
       inputRange: [0, 100],
       outputRange: ['rgba(255, 255, 255, 1.0)', 'rgba(26, 35, 255, 1.0)']
@@ -330,7 +330,7 @@ export default class Chat extends Component {
               <View style={{borderColor: 'white', borderWidth: 1, width: 10, height: 10, borderRadius: 5, backgroundColor: '#00BB34', position: 'absolute', top: 11, left: 60}} />
               <View style={{width: 100, marginLeft: 12}}>
                 <Text style={{fontSize: 15, fontWeight: 'bold', color: '#FFF'}}>{name}</Text>
-                <Text style={{fontSize: 11, color: '#ddd', marginTop: 3}}>{desc}</Text>
+                <Text style={{fontSize: 11, color: '#ddd', marginTop: 3}}>{description}</Text>
               </View>
             </TouchableOpacity>
 
