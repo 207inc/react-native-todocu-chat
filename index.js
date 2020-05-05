@@ -40,9 +40,10 @@ export default class Chat extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
+    console.warn('Chat updated' + JSON.stringify(this.props.messages))
   }
-
+  
   onFocusInput() {
     this.openChatModal();
   }
