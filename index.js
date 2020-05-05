@@ -40,10 +40,12 @@ export default class Chat extends Component {
     };
   }
 
-  UNSAFE_componentWillUpdate(nextProps) {  
-    this.setState({
-      messages: nextProps.messages
-    })
+  UNSAFE_componentWillUpdate(nextProps) {
+    if (nextProps.messages.length !== nextProps.messages.length) {
+      this.setState({
+        messages: nextProps.messages
+      })
+    }
   }
 
   componentDidMount() {
