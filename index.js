@@ -380,10 +380,10 @@ const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     zIndex: 999,
+    top: 200,
     bottom: 0,
     left: 0,
     right: 0,
-    height: height,
   },
   welcome: {
     fontSize: 20,
