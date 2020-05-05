@@ -318,9 +318,6 @@ export default class Chat extends Component {
                   width: 280
                 }}
             />
-            <TouchableOpacity style={{position: 'absolute', top: 0, left: 4, width: 32, height: 50, alignItems: 'center', justifyContent: 'center'}} onPress={() => this.closeChatModal()}>
-              <Ionicons style={{fontSize: 24, color: '#fff', opacity: 0.8}} name={'ios-arrow-back'} />
-            </TouchableOpacity>
             <TouchableOpacity style={{position: 'absolute', top: -1, right: 40, width: 40, height: 50, alignItems: 'center', justifyContent: 'center'}}>
               <MaterialIcons style={{fontSize: 20, color: '#fff', opacity: 0.8}} name={'settings'} />
             </TouchableOpacity>
@@ -328,7 +325,7 @@ export default class Chat extends Component {
               <Ionicons style={{fontSize: 24, color: '#fff', opacity: 0.8}} name={'md-close'} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{position: 'absolute', top: 0, left:90, width: 32, height: 50, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <TouchableOpacity style={{position: 'absolute', top: 0, left:4, width: 32, height: 50, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Image style={{width: 34, height: 34, borderRadius: 17, marginLeft: 16}} source={{uri: icon}} />
               <View style={{borderColor: 'white', borderWidth: 1, width: 10, height: 10, borderRadius: 5, backgroundColor: '#00BB34', position: 'absolute', top: 11, left: 60}} />
               <View style={{width: 100, marginLeft: 12}}>
@@ -380,7 +377,6 @@ export default class Chat extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#eee',
     height: height,
   },
