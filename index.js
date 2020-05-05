@@ -325,7 +325,7 @@ export default class Chat extends Component {
               <Ionicons style={{fontSize: 24, color: '#fff', opacity: 0.8}} name={'md-close'} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{position: 'absolute', top: 0, left:4, width: 32, height: 50, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <TouchableOpacity style={{position: 'absolute', top: 0, left:16, width: 120, height: 50, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Image style={{width: 34, height: 34, borderRadius: 17, marginLeft: 16}} source={{uri: icon}} />
               <View style={{borderColor: 'white', borderWidth: 1, width: 10, height: 10, borderRadius: 5, backgroundColor: '#00BB34', position: 'absolute', top: 11, left: 60}} />
               <View style={{width: 100, marginLeft: 12}}>
@@ -378,7 +378,7 @@ export default class Chat extends Component {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    zIndex: 99,
+    zIndex: 999,
     top: 0,
     bottom: 0,
     left: 0,
