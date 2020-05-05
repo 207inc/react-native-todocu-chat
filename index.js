@@ -383,8 +383,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: 'transparent',
-    height: 120,
+    height: height,
   },
   welcome: {
     fontSize: 20,
