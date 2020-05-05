@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/207inc/react-native-todocu-chat.git"
+    "url": "git@github.com:207inc/react-native-todocu-chat.git"
   },
   "author": "Hiro Wakatsuki <h.wakatsuki@tenova.jp> (https://tenova.jp)",
   "license": "ISC",
